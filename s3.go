@@ -30,7 +30,6 @@ func (s *S3Manager) Init(aws_access_key_id string, aws_secret_access_key string,
 	creds := credentials.NewStaticCredentials(aws_access_key_id, aws_secret_access_key, token)
 	cfg := aws.NewConfig().WithRegion(region).WithCredentials(creds)
 	s.S3Service = s3.New(session.New(), cfg)
-	log.Printf("Connecting to AWS on %v",cfg)
 	s.RekognitionService = rekognition.New(session.New(), cfg)
 }
 
